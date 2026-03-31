@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mavs Books</title>
+
+<style>
+
+body{
+font-family:Georgia, serif;
+margin:0;
+background:#f5efe6;
+}
+
+/* Header */
+
+.header{
+background:#4b2e2e;
+color:white;
+text-align:center;
+padding:18px;
+font-size:26px;
+}
+
+/* Grid Layout */
+
+.container{
+display:grid;
+grid-template-columns:200px 1fr 250px;
+gap:15px;
+padding:15px;
+}
+
+/* Categories */
+
+.categories{
+background:#fffdf9;
+padding:20px;
+border-radius:6px;
+}
+
+.categories h3{
+color:#4b2e2e;
+}
+
+.categories a{
+display:block;
+text-decoration:none;
+background:#8b1e3f;
+color:white;
+padding:10px;
+margin-bottom:10px;
+border-radius:4px;
+text-align:center;
+}
+
+.categories a:hover{
+background:#64142d;
+}
+
+/* Product Grid */
+
+.products{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.card{
+background:#fffdf9;
+padding:15px;
+text-align:center;
+border-radius:6px;
+box-shadow:0 2px 6px rgba(0,0,0,0.2);
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.card h4{
+color:#4b2e2e;
+}
+
+/* Sidebar */
+
+.sidebar{
+background:#fffdf9;
+padding:20px;
+border-radius:6px;
+}
+
+.sidebar div{
+display:none;
+}
+
+/* Category display */
+
+#fiction:target,
+#science:target,
+#education:target,
+#history:target{
+display:block;
+}
+
+/* Footer */
+
+.footer{
+text-align:center;
+padding:12px;
+background:#4b2e2e;
+color:white;
+margin-top:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+Mavs Books - Online Book Store
+</div>
+
+<div class="container">
+
+<!-- Categories -->
+
+<div class="categories">
+
+<h3>Book Categories</h3>
+
+<a href="#fiction">Fiction</a>
+<a href="#science">Science</a>
+<a href="#education">Education</a>
+<a href="#history">History</a>
+
+</div>
+
+<!-- Product Grid -->
+
+<div class="products">
+
+<div class="card">
+<img src="https://covers.openlibrary.org/b/isbn/9780439554930-L.jpg">
+<h4>Harry Potter and the Sorcerer's Stone</h4>
+<p>$20</p>
+</div>
+
+<div class="card">
+<img src="https://covers.openlibrary.org/b/isbn/9780735211292-L.jpg">
+<h4>Atomic Habits</h4>
+<p>$18</p>
+</div>
+
+<div class="card">
+<img src="https://covers.openlibrary.org/b/isbn/9780132350884-L.jpg">
+<h4>Clean Code</h4>
+<p>$35</p>
+</div>
+
+<div class="card">
+<img src="https://covers.openlibrary.org/b/isbn/9780131103627-L.jpg">
+<h4>The C Programming Language</h4>
+<p>$30</p>
+</div>
+
+<div class="card">
+<img src="https://covers.openlibrary.org/b/isbn/9780062316097-L.jpg">
+<h4>Sapiens</h4>
+<p>$22</p>
+</div>
+
+<div class="card">
+<img src="https://covers.openlibrary.org/b/isbn/9780136042594-L.jpg">
+<h4>Artificial Intelligence: A Modern Approach</h4>
+<p>$45</p>
+</div>
+
+</div>
+
+<!-- Sidebar -->
+
+<div class="sidebar">
+
+<h3>Books List</h3>
+
+<div id="fiction">
+<p>Harry Potter and the Sorcerer's Stone</p>
+<p>The Hobbit</p>
+<p>Pride and Prejudice</p>
+<p>The Great Gatsby</p>
+</div>
+
+<div id="science">
+<p>A Brief History of Time</p>
+<p>The Selfish Gene</p>
+<p>Cosmos</p>
+<p>The Elegant Universe</p>
+</div>
+
+<div id="education">
+<p>Clean Code</p>
+<p>The C Programming Language</p>
+<p>Data Structures and Algorithms</p>
+<p>Introduction to Algorithms</p>
+</div>
+
+<div id="history">
+<p>Sapiens</p>
+<p>Guns, Germs, and Steel</p>
+<p>The Silk Roads</p>
+<p>The Diary of Anne Frank</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="footer">
+Created by Madhu Satya Kumar
+</div>
+
+</body>
+</html>

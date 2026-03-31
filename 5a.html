@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Formula 1 Racers</title>
+
+<style>
+    .bodystyle{
+        background-image: url(f1_logo-wallpaper-1920x1080.jpg);
+        color:white;
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    .card-container{
+        display:flex;
+        gap:20px;
+        flex-wrap:wrap;
+        justify-content:center;
+        align-items:center;
+    }
+
+    .card{
+        border:1px solid #ff0000;
+        text-align:center;
+        padding:10px;
+        background-color:#1a1a1a;
+        box-shadow:0 4px 10px rgba(255,0,0,0.3);
+        border-radius:8px;
+        width:260px;
+    }
+
+    h1{
+        text-align:center;
+        border:2px solid red;
+        border-radius:5px;
+        background-color:#111;
+        padding:10px;
+        color:red;
+    }
+
+    h3{
+        text-align:center;
+        text-decoration:underline;
+        color:#ff4d4d;
+    }
+
+    button{
+        font-size:medium;
+        background-color:red;
+        color:white;
+        border-radius:25px;
+        margin-bottom:10px;
+        border:none;
+        padding:8px 15px;
+        cursor:pointer;
+    }
+
+    button:hover{
+        background-color:#ff4d4d;
+        font-size:large;
+    }
+
+    img{
+        width:100%;
+        border-radius:5px;
+    }
+
+</style>
+</head>
+
+<body class="bodystyle">
+
+<p>Madhu Satyakumar <br>CSE 25118</p>
+
+<h1>Formula 1 Racers & Cars</h1>
+
+<div class="card-container">
+
+    <div class="card">
+        <img src="Screenshot 2026-03-14 164919.png" alt="Max Verstappen">
+        <h3>Max Verstappen</h3>
+        <p>
+        Max Verstappen drives for Red Bull Racing.<br>
+        His car, the RB19/RB20 series,<br>
+        is known for incredible aerodynamics,<br>
+        extreme speed on straights,<br>
+        and dominance in modern Formula 1.
+        </p>
+
+        <button type="button"
+        onclick="location.href='https://en.wikipedia.org/wiki/Max_Verstappen'">
+        Driver Info
+        </button>
+    </div>
+
+
+    <div class="card">
+        <img src="Screenshot 2026-03-14 164839.png" alt="Lewis Hamilton">
+        <h3>Lewis Hamilton</h3>
+        <p>
+        Lewis Hamilton races for Mercedes AMG.<br>
+        The Mercedes W14/W15 cars are known<br>
+        for engineering excellence,<br>
+        hybrid power units,<br>
+        and championship-winning performance.
+        </p>
+
+        <button type="button"
+        onclick="location.href='https://en.wikipedia.org/wiki/Lewis_Hamilton'">
+        Driver Info
+        </button>
+    </div>
+
+
+    <div class="card">
+        <img src="Screenshot 2026-03-14 165032.png" alt="Charles Leclerc">
+        <h3>Charles Leclerc</h3>
+        <p>
+        Charles Leclerc drives for Ferrari.<br>
+        Ferrari cars like the SF-23<br>
+        combine Italian engineering,<br>
+        powerful engines,<br>
+        and iconic red racing heritage.
+        </p>
+
+        <button type="button"
+        onclick="location.href='https://en.wikipedia.org/wiki/Charles_Leclerc'">
+        Driver Info
+        </button>
+    </div>
+
+</div>
+
+</body>
+</html>
