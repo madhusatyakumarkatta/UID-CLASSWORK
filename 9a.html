@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>Number Checker</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: #fafafa;
+            color: #333;
+            line-height: 1.6;
+        }
+        input {
+            width: 100%;
+            padding: 0.75rem;
+            font-size: 1.1rem;
+            border: 1px solid #ddd;
+            border-radius: 0.5rem;
+            box-sizing: border-box;
+            margin-bottom: 1rem;
+        }
+        button {
+            background: #007acc;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            margin: 0.25rem;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: #005a9e;
+        }
+        #output {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 0.5rem;
+            min-height: 3rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        h1 {
+            text-align: center;
+            color: #222;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Number Checker</h1>
+    
+    <input type="number" id="numInput" placeholder="Enter a number">
+    
+    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin: 1rem 0;">
+        <button onclick="checkEven()">Check Even</button>
+        <button onclick="checkOdd()">Check Odd</button>
+        <button onclick="checkPrime()">Check Prime</button>
+        <button onclick="getFactorial()">Factorial</button>
+        <button onclick="checkArmstrong()">Check Armstrong</button>
+    </div>
+    
+    <div id="output"></div>
+
+    <script>
+        var display = document.getElementById("output");
+  
+        // Simple helper to get the number
+        function getNumber() {
+            return Number(document.getElementById("numInput").value);
+        }
+
+        // 1. Check Even
+        function checkEven() {
+            var num = getNumber();
+            if (num % 2 == 0) {
+                display.innerHTML = num + " is Even.";
+            } else {
+                display.innerHTML = num + " is NOT Even.";
+            }
+        }
+
+        // 2. Check Odd
+        function checkOdd() {
+            var num = getNumber();
+            if (num % 2 != 0) {
+                display.innerHTML = num + " is Odd.";
+            } else {
+                display.innerHTML = num + " is NOT Odd.";
+            }
+        }
+
+        // 3. Check Prime (Divisible only by 1 and itself)
+        function checkPrime() {
+            var num = getNumber();
+            var isPrime = true;
+
+            if (num < 2) {
+                isPrime = false; // 0 and 1 are not prime
+            } else {
+                // Try dividing by every number up to the number itself
+                for (var i = 2; i < num; i++) {
+                    if (num % i == 0) {
+                        isPrime = false; // We found a match, so it's not prime
+                    }
+                }
+            }
+
+            if (isPrime == true) {
+                display.innerHTML = num + " is Prime.";
+            } else {
+                display.innerHTML = num + " is NOT Prime.";
+            }
+        }
+
+        // 4. Calculate Factorial (Multiply all numbers up to the given number)
+        function getFactorial() {
+            var num = getNumber();
+            var answer = 1;
+            
+            for (var i = 1; i <= num; i++) {
+                answer = answer * i;
+            }
+            
+            display.innerHTML = "The Factorial is " + answer;
+        }
+
+        // 5. Check Armstrong (Sum of its digits raised to the power of total digits)
+        function checkArmstrong() {
+            var num = getNumber();
+            var textNum = num.toString(); // Turn number into text to easily read digits
+            var totalDigits = textNum.length;
+            var sum = 0;
+
+            // Loop through each digit one by one
+            for (var i = 0; i < totalDigits; i++) {
+                var singleDigit = Number(textNum[i]); 
+                sum = sum + Math.pow(singleDigit, totalDigits);
+            }
+
+            if (sum == num) {
+                display.innerHTML = num + " is an Armstrong Number.";
+            } else {
+                display.innerHTML = num + " is NOT an Armstrong Number.";
+            }
+        }
+    </script>
+
+</body>
+</html>
