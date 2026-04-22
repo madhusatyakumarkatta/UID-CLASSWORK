@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Number Validator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            color: #4a5568;
+            font-weight: 300;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            align-self: flex-start;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #4a5568;
+        }
+
+        input {
+            padding: 15px;
+            font-size: 16px;
+            width: 100%;
+            margin-bottom: 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        input.error {
+            border-color: #e53e3e;
+        }
+
+        .message {
+            color: #e53e3e;
+            font-size: 14px;
+            margin-top: 15px;
+            min-height: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .message.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mobile Number Validator</h1>
+        <form id="mobileForm">
+            <label for="mobile">Mobile Number:</label>
+            <input type="tel" id="mobile" name="mobile" placeholder="Enter 10-digit mobile number" maxlength="10">
+        </form>
+        <div id="message" class="message"></div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileInput = document.getElementById('mobile');
+            const messageDiv = document.getElementById('message');
+
+            mobileInput.addEventListener('blur', function() {
+                const mobile = mobileInput.value.trim();
+                if (mobile === '') {
+                    // Optional: handle empty field
+                    return;
+                }
+                if (!/^\d{10}$/.test(mobile)) {
+                    messageDiv.textContent = 'Please enter a valid 10-digit mobile number.';
+                    messageDiv.classList.add('show');
+                    mobileInput.classList.add('error');
+                } else {
+                    messageDiv.textContent = '';
+                    messageDiv.classList.remove('show');
+                    mobileInput.classList.remove('error');
+                }
+            });
+
+            // Clear error on focus
+            mobileInput.addEventListener('focus', function() {
+                messageDiv.classList.remove('show');
+                mobileInput.classList.remove('error');
+            });
+        });
+    </script>
+</body>
+</html>

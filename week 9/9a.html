@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Number Checker</title>
     <style>
@@ -36,6 +38,13 @@
         button:hover {
             background: #005a9e;
         }
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin: 1rem 0;
+        }
         #output {
             margin-top: 2rem;
             padding: 1rem;
@@ -59,7 +68,7 @@
     
     <input type="number" id="numInput" placeholder="Enter a number">
     
-    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin: 1rem 0;">
+    <div class="button-container">
         <button onclick="checkEven()">Check Even</button>
         <button onclick="checkOdd()">Check Odd</button>
         <button onclick="checkPrime()">Check Prime</button>
@@ -97,58 +106,51 @@
             }
         }
 
-        // 3. Check Prime (Divisible only by 1 and itself)
+        // 3. Check Prime
         function checkPrime() {
             var num = getNumber();
-            var isPrime = true;
-
-            if (num < 2) {
-                isPrime = false; // 0 and 1 are not prime
-            } else {
-                // Try dividing by every number up to the number itself
-                for (var i = 2; i < num; i++) {
-                    if (num % i == 0) {
-                        isPrime = false; // We found a match, so it's not prime
-                    }
+            if (num <= 1) {
+                display.innerHTML = num + " is NOT Prime.";
+                return;
+            }
+            for (var i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i == 0) {
+                    display.innerHTML = num + " is NOT Prime.";
+                    return;
                 }
             }
-
-            if (isPrime == true) {
-                display.innerHTML = num + " is Prime.";
-            } else {
-                display.innerHTML = num + " is NOT Prime.";
-            }
+            display.innerHTML = num + " is Prime.";
         }
 
-        // 4. Calculate Factorial (Multiply all numbers up to the given number)
+        // 4. Factorial
         function getFactorial() {
             var num = getNumber();
-            var answer = 1;
-            
-            for (var i = 1; i <= num; i++) {
-                answer = answer * i;
+            if (num < 0) {
+                display.innerHTML = "Factorial not defined for negative numbers.";
+                return;
             }
-            
-            display.innerHTML = "The Factorial is " + answer;
+            var fact = 1;
+            for (var i = 1; i <= num; i++) {
+                fact *= i;
+            }
+            display.innerHTML = "Factorial of " + num + " is " + fact + ".";
         }
 
-        // 5. Check Armstrong (Sum of its digits raised to the power of total digits)
+        // 5. Check Armstrong
         function checkArmstrong() {
             var num = getNumber();
-            var textNum = num.toString(); // Turn number into text to easily read digits
-            var totalDigits = textNum.length;
+            var originalNum = num;
             var sum = 0;
-
-            // Loop through each digit one by one
-            for (var i = 0; i < totalDigits; i++) {
-                var singleDigit = Number(textNum[i]); 
-                sum = sum + Math.pow(singleDigit, totalDigits);
+            var digits = num.toString().length;
+            while (num > 0) {
+                var digit = num % 10;
+                sum += Math.pow(digit, digits);
+                num = Math.floor(num / 10);
             }
-
-            if (sum == num) {
-                display.innerHTML = num + " is an Armstrong Number.";
+            if (sum == originalNum) {
+                display.innerHTML = originalNum + " is an Armstrong number.";
             } else {
-                display.innerHTML = num + " is NOT an Armstrong Number.";
+                display.innerHTML = originalNum + " is NOT an Armstrong number.";
             }
         }
     </script>
